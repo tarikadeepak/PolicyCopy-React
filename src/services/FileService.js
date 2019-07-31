@@ -23,7 +23,52 @@ export default class FileService{
           credentials: 'include',
           body: JSON.stringify(policyData)
         }).catch((error) => {
-          console.log('In File Service Error ', error)
+            let errorMsg = 'Error Occured, Please contact TSC with the error message  -  ' + error; 
+            alert(errorMsg)
       })
     }
+
+    fileRead() {
+        const url = 'http://localhost:3000/api/read';
+        return fetch(url, {
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          method: 'get',
+          credentials: 'include'
+        }).catch((error) => {
+            let errorMsg = 'Error Occured, Please contact TSC with the error message  -  ' + error; 
+            alert(errorMsg)
+      })
+    }
+
+    findParam() {
+        const url = 'http://localhost:3000/api/param';
+        return fetch(url, {
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          method: 'get',
+          credentials: 'include',
+        }).catch((error) => {
+          let errorMsg = 'Error Occured, Please contact TSC with the error message  -  ' + error; 
+            alert(errorMsg)
+      })
+    }
+
+    findInfo(userInfo) {
+      const url = 'http://localhost:3000/api/info';
+      console.log('User Info before calling Service : ', userInfo)
+      return fetch(url, {
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        method: 'Post',
+        credentials: 'include',
+        body: JSON.stringify(userInfo)
+      }).catch((error) => {
+        let errorMsg = 'Error Occured, Please contact TSC with the error message  -  ' + error; 
+          alert(errorMsg)
+    })
+  }
 }

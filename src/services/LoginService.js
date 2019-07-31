@@ -23,7 +23,8 @@ export default class LoginService{
           credentials: 'include',
           body: JSON.stringify(user)
         }).catch((error) => {
-          console.log('In Error ', error)
+          let errorMsg = 'Error Occured, Please contact TSC with the error message  -  ' + error; 
+            alert(errorMsg)
       })
     }
 }
